@@ -16,7 +16,6 @@ SListInt::SListInt()
   //''' LAB TASK '''''''''''''''''''''''''''''''''''''''''''''''''''''''''
   // Implement constructor
   //''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-  m_head_p = nullptr;
 }
 
 //------------------------------------------------------------------------
@@ -57,10 +56,6 @@ void SListInt::push_front( int v )
   //''' LAB TASK '''''''''''''''''''''''''''''''''''''''''''''''''''''''''
   // Implement push_front
   //''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-  Node* new_node_p   = new Node;
-  new_node_p->value  = v;
-  new_node_p->next_p = m_head_p;
-  m_head_p           = new_node_p;
 }
 
 //------------------------------------------------------------------------
@@ -72,23 +67,6 @@ void SListInt::reverse()
   //''' LAB TASK '''''''''''''''''''''''''''''''''''''''''''''''''''''''''
   // Implement reverse
   //''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-  size_t size = 0;
-  for ( int v: *this ) {
-    v = v; // avoid unused variable warning
-    size++;
-  }
-
-  int* tmp = new int[size];
-
-  size_t i = 0;
-  for ( int v : *this )
-    tmp[i++] = v;
-
-  size_t j = size-1;
-  for ( int& v : *this )
-    v = tmp[j--];
-
-  delete[] tmp;
 }
 
 //------------------------------------------------------------------------
@@ -100,9 +78,6 @@ void SListInt::print() const
   //''' LAB TASK '''''''''''''''''''''''''''''''''''''''''''''''''''''''''
   // Implement print
   //''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-  for ( int v : *this )
-    std::printf( "%d ", v );
-  std::printf("\n");
 }
 
 //------------------------------------------------------------------------
@@ -114,24 +89,6 @@ void SListInt::copy( const SListInt& lst )
   //''' LAB TASK '''''''''''''''''''''''''''''''''''''''''''''''''''''''''
   // Implement copy
   //''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-  // Node* curr_p = lst.m_head_p;
-  // if ( curr_p == nullptr )
-  //   return;
-  //
-  // m_head_p = new Node;
-  // m_head_p->value  = curr_p->value;
-  // m_head_p->next_p = nullptr;
-  // curr_p = curr_p->next_p;
-  //
-  // Node* tail_p = m_head_p;
-  // while ( curr_p != nullptr ) {
-  //   Node* new_node_p = new Node;
-  //   new_node_p->value  = curr_p->value;
-  //   new_node_p->next_p = nullptr;
-  //   tail_p->next_p = new_node_p;
-  //   tail_p = new_node_p;
-  //   curr_p = curr_p->next_p;
-  // }
 }
 
 //------------------------------------------------------------------------
@@ -143,11 +100,6 @@ void SListInt::clear()
   //''' LAB TASK '''''''''''''''''''''''''''''''''''''''''''''''''''''''''
   // Implement clear
   //''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-  while ( m_head_p != nullptr ) {
-    Node* temp_p = m_head_p->next_p;
-    delete m_head_p;
-    m_head_p = temp_p;
-  }
 }
 
 //------------------------------------------------------------------------
