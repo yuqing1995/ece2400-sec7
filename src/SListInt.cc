@@ -63,9 +63,16 @@ void SListInt::push_front( int v )
 
 void SListInt::reverse()
 {
-  //''' LAB TASK '''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-  // Implement reverse
-  //''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  Node* prev = nullptr;
+  Node* curr = m_head_p;
+  Node* next = nullptr;
+  while (curr != nullptr){
+    next = curr->next_p;
+    next = curr->next_p;
+    curr->next_p = prev;
+    prev = curr;
+    curr = next;
+  }
 }
 
 //------------------------------------------------------------------------

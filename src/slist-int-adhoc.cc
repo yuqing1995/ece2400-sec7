@@ -20,6 +20,7 @@ int main( void )
       printf( "%d ", *itr );
   }
   printf( "\n" );
+  list.reverse();
 
   // Print the list
 
