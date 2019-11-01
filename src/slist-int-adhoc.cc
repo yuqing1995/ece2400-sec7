@@ -3,7 +3,8 @@
 //========================================================================
 
 #include "SListInt.h"
-
+#include <cstdio>
+#include <cassert>
 int main( void )
 {
   // Construct a list using default constructor
@@ -15,6 +16,10 @@ int main( void )
   list.push_front(12);
   list.push_front(11);
   list.push_front(10);
+  for ( auto itr = list.begin(); itr != list.end(); itr++ ){
+      printf( "%d ", *itr );
+  }
+  printf( "\n" );
 
   // Print the list
 

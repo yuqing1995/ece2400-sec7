@@ -13,9 +13,7 @@
 
 SListInt::SListInt()
 {
-  //''' LAB TASK '''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-  // Implement constructor
-  //''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  this->m_head_p = nullptr;
 }
 
 //------------------------------------------------------------------------
@@ -53,9 +51,10 @@ SListInt& SListInt::operator=( const SListInt& lst )
 
 void SListInt::push_front( int v )
 {
-  //''' LAB TASK '''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-  // Implement push_front
-  //''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  Node* newNode = new Node;
+  newNode->value = v;
+  newNode->next_p = m_head_p;
+  m_head_p = newNode;
 }
 
 //------------------------------------------------------------------------
@@ -75,9 +74,12 @@ void SListInt::reverse()
 
 void SListInt::print() const
 {
-  //''' LAB TASK '''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-  // Implement print
-  //''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  Node* tmp = m_head_p;
+  while (tmp != nullptr){
+    printf("%d ", tmp->value );
+    tmp = tmp->next_p;
+  }
+  printf("\n");
 }
 
 //------------------------------------------------------------------------
